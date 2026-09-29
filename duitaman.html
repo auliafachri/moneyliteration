@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DuitAman — Literasi Finansial Mahasiswa</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💸%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf9;--fg:#111;--mut:#6f6f6b;--line:#e7e5e0;--card:#fff;--ac:#e5322d;--r:14px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0d;--fg:#f2f2ef;--mut:#9a9a94;--line:#262624;--card:#161615}}
+:root[data-theme="dark"]{--bg:#0e0e0d;--fg:#f2f2ef;--mut:#9a9a94;--line:#262624;--card:#161615}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:880px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:20}
+header .w{display:flex;justify-content:space-between;align-items:center;height:56px}
+.logo{font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--fg)}.logo i{color:var(--ac);font-style:normal}
+nav{display:flex;gap:22px;font-size:14px}nav a{color:var(--mut);text-decoration:none}nav a:hover{color:var(--fg)}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.hero{padding:112px 0 88px;border:0}
+.tag{font-size:13px;color:var(--mut);margin-bottom:18px}
+h1{font-size:clamp(38px,7vw,68px);line-height:1.05;letter-spacing:-.035em;font-weight:700;max-width:14ch}
+h1 span{color:var(--ac)}
+h2{font-size:28px;letter-spacing:-.025em;margin-bottom:8px}
+.sub{color:var(--mut);max-width:52ch;margin:20px 0 32px}
+.lead{color:var(--mut);margin-bottom:36px;max-width:56ch}
+.btn{display:inline-block;background:var(--fg);color:var(--bg);border:0;border-radius:99px;padding:12px 22px;font:500 15px Inter,sans-serif;text-decoration:none;cursor:pointer}
+.btn.o{background:none;color:var(--fg);border:1px solid var(--line);margin-left:8px}
+.btn:hover{opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.grid>div{background:var(--bg);padding:24px}
+.grid b{display:block;margin-bottom:6px}.grid p,.grid small{color:var(--mut);font-size:14px}
+.n{color:var(--ac);font-size:13px;font-weight:600;display:block;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.two{grid-template-columns:1fr}nav{display:none}}
+label{display:block;font-size:13px;color:var(--mut);margin:14px 0 5px}
+input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font:15px Inter,sans-serif}
+input:focus{outline:2px solid var(--ac);outline-offset:-1px}
+.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.row:last-child{border:0}.row span:first-child{color:var(--mut)}
+.big{font-size:32px;font-weight:700;letter-spacing:-.03em;margin:4px 0}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:10px}.bar div{height:100%;background:var(--ac);width:0;transition:width .5s}
+.stat{font-size:14px;margin-top:12px;color:var(--mut)}
+.ex{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.ex em{flex:1;font-style:normal}.ex .b{color:var(--ac)}
+.ex button{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer}
+.add{display:flex;gap:8px;margin-bottom:8px}
+.ai{white-space:pre-wrap;font-size:15px;margin-top:18px;min-height:24px}
+.q{border-bottom:1px solid var(--line)}
+.q summary{padding:18px 0;cursor:pointer;font-weight:500;list-style:none}
+.q summary::after{content:"+";float:right;color:var(--mut)}.q[open] summary::after{content:"−"}
+.q p{color:var(--mut);padding-bottom:18px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:32px 0 96px;color:var(--mut);font-size:13px}
+/* chat */
+#fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;border:0;background:var(--fg);color:var(--bg);font-size:22px;cursor:pointer;z-index:30;box-shadow:0 6px 24px rgba(0,0,0,.2)}
+#chat{position:fixed;right:20px;bottom:calc(84px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100% - 40px));height:min(520px,calc(100% - 160px));background:var(--card);border:1px solid var(--line);border-radius:18px;display:none;flex-direction:column;z-index:30;box-shadow:0 16px 48px rgba(0,0,0,.18);overflow:hidden}
+#chat.on{display:flex}
+#chat h3{font-size:14px;padding:14px 16px;border-bottom:1px solid var(--line)}#chat h3 small{color:var(--mut);font-weight:400}
+#msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:86%;padding:9px 13px;border-radius:14px;font-size:14px;white-space:pre-wrap}
+.m.u{align-self:flex-end;background:var(--fg);color:var(--bg)}.m.a{align-self:flex-start;background:var(--bg);border:1px solid var(--line)}
+#cf{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}#cf input{border-radius:99px}
+#cf button{border:0;background:var(--ac);color:#fff;border-radius:99px;padding:0 16px;font-weight:600;cursor:pointer}
+.off{color:var(--mut);font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="logo" href="#">Duit<i>Aman</i></a>
+<nav><a href="#solusi">Metode</a><a href="#kalkulator">Kalkulator</a><a href="#tracker">Tracker</a><a href="#asisten">Asisten AI</a><a href="#faq">FAQ</a></nav></div></header>
+
+<main>
+<div class="w hero">
+  <p class="tag">Literasi finansial untuk mahasiswa</p>
+  <h1>Uang saku cukup sampai <span>akhir bulan.</span></h1>
+  <p class="sub">Bukan salahmu — kamu cuma butuh sistem. Atur uang dengan realistis, nabung tanpa tersiksa, dan tetap bisa ngopi.</p>
+  <a class="btn" href="#kalkulator">Hitung anggaranku</a><a class="btn o" href="#asisten">Tanya asisten AI</a>
+</div>
+
+<section id="masalah"><div class="w">
+  <h2>Kenapa duit selalu habis?</h2><p class="lead">Bukan uang sakumu yang kurang — pengeluaran kecil yang tak tercatat jadi bom waktu.</p>
+  <div class="grid">
+    <div><b>Kopi tak terkontrol</b><p>Rp 25.000/hari = Rp 750.000/bulan.</p></div>
+    <div><b>FOMO & impulsif</b><p>Flash sale dan nongkrong dadakan menguras rekening tanpa terasa.</p></div>
+    <div><b>Tanpa catatan</b><p>Tak tahu uang ke mana, tak bisa diperbaiki.</p></div>
+    <div><b>Tanpa target</b><p>Menabung terasa opsional dan selalu kalah dari keinginan.</p></div>
+  </div>
+</div></section>
+
+<section id="solusi"><div class="w">
+  <h2>Enam kebiasaan yang bekerja</h2><p class="lead">Bisa dimulai malam ini, tanpa aplikasi premium.</p>
+  <div class="grid">
+    <div><span class="n">01</span><b>Metode 50/30/20</b><p>50% kebutuhan, 30% keinginan, 20% ditabung.</p></div>
+    <div><span class="n">02</span><b>Pay yourself first</b><p>Terima uang saku, langsung pindahkan 20% ke rekening terpisah.</p></div>
+    <div><span class="n">03</span><b>Catat setiap hari</b><p>Tiga kategori: wajib, makan, gaya hidup.</p></div>
+    <div><span class="n">04</span><b>Tunggu 24 jam</b><p>Kalau lupa besoknya, berarti tidak benar-benar butuh.</p></div>
+    <div><span class="n">05</span><b>Target spesifik</b><p>“Nabung Rp 200K/minggu untuk laptop dalam 6 bulan.”</p></div>
+    <div><span class="n">06</span><b>Review mingguan</b><p>10 menit tiap minggu untuk menemukan kebocoran.</p></div>
+  </div>
+</div></section>
+
+<section id="kalkulator"><div class="w">
+  <h2>Kalkulator anggaran</h2><p class="lead">Masukkan datamu, lihat berapa yang realistis ditabung.</p>
+  <div class="two">
+    <div class="card">
+      <label for="income">Uang saku bulanan (Rp)</label><input id="income" type="number" inputmode="numeric" placeholder="1500000">
+      <label for="kos">Biaya kos (Rp)</label><input id="kos" type="number" inputmode="numeric" placeholder="500000">
+      <label for="makan">Makan per hari (Rp)</label><input id="makan" type="number" inputmode="numeric" placeholder="35000">
+      <label for="kopi">Kopi & nongkrong per bulan (Rp)</label><input id="kopi" type="number" inputmode="numeric" placeholder="200000">
+    </div>
+    <div class="card">
+      <div class="row"><span>Pemasukan</span><span id="r-in">—</span></div>
+      <div class="row"><span>Kebutuhan</span><span id="r-wb">—</span></div>
+      <div class="row"><span>Gaya hidup</span><span id="r-gy">—</span></div>
+      <p class="stat" style="margin-top:20px">Bisa ditabung</p><div class="big" id="r-tb">—</div>
+      <div class="bar"><div id="r-bar"></div></div><p class="stat" id="r-chip">Isi data di samping.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="tracker"><div class="w">
+  <h2>Tracker harian</h2><p class="lead">Jujur saja — tidak ada yang menghakimi. Pengeluaran boros ditandai merah.</p>
+  <div class="card" style="max-width:560px">
+    <div class="add"><input id="enm" placeholder="Nama pengeluaran"><input id="eam" type="number" inputmode="numeric" placeholder="Rp" style="max-width:120px"><button class="btn" onclick="addEx()">Tambah</button></div>
+    <div id="exList"></div>
+    <div class="row" style="margin-top:8px"><span>Total hari ini</span><b id="ttl">Rp 0</b></div>
+    <div class="bar"><div id="pf"></div></div><p class="stat">Budget harian ideal ± Rp 50.000–80.000 untuk uang saku Rp 1,5 juta.</p>
+  </div>
+</div></section>
+
+<section id="asisten"><div class="w">
+  <h2>Asisten keuangan AI</h2><p class="lead">AI membaca data kalkulator dan tracker-mu, lalu memberi analisis dan langkah konkret.</p>
+  <div class="card">
+    <button class="btn" id="analyze">Analisis keuanganku</button>
+    <div class="ai" id="aiOut"></div>
+  </div>
+  <p class="off" style="margin-top:14px">Ingin ngobrol? Pakai chat di pojok kanan bawah.</p>
+</div></section>
+
+<section id="faq"><div class="w">
+  <h2>FAQ</h2><div style="margin-top:24px">
+  <details class="q"><summary>Apakah 50/30/20 realistis untuk uang saku kecil?</summary><p>Ya. Uang saku Rp 800.000 berarti Rp 400K kebutuhan, Rp 240K keinginan, Rp 160K tabungan. Kecil tapi konsisten lebih baik dari target besar yang gagal.</p></details>
+  <details class="q"><summary>Kalau kebutuhan wajibku lebih dari 50%?</summary><p>Wajar, terutama kos di kota besar. Coba rasio 70/20/10. Yang penting ada bagian yang selalu ditabung.</p></details>
+  <details class="q"><summary>Harus berhenti ngopi supaya bisa nabung?</summary><p>Tidak. Anggarkan saja, misalnya Rp 150.000–200.000/bulan, dan nikmati dalam batas itu.</p></details>
+  <details class="q"><summary>Kapan waktu terbaik mulai?</summary><p>Sekarang. Catat tiga pengeluaran hari ini di tracker — itu sudah cukup untuk memulai.</p></details>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w">© 2025 DuitAman — Literasi Finansial Mahasiswa Indonesia</div></footer>
+
+<button id="fab" aria-label="Buka chat AI">💬</button>
+<div id="chat" role="dialog" aria-label="Chat AI">
+  <h3>DuitAman Bot <small>· tanya soal keuangan</small></h3>
+  <div id="msgs"><div class="m a">Halo! Aku bot keuangan DuitAman. Tanya apa saja soal uang saku, nabung, atau anggaran 😊</div></div>
+  <div id="cf"><input id="cin" placeholder="Tulis pertanyaan..." autocomplete="off"><button id="csend">Kirim</button></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const num=id=>+$(id).value||0;
+
+/* Kalkulator */
+function hitung(){
+  const inc=num('income'),kos=num('kos'),md=num('makan'),kopi=num('kopi');
+  const wajib=kos+md*30,tab=inc-wajib-kopi,pct=inc>0?tab/inc*100:0;
+  $('r-in').textContent=fmt(inc);$('r-wb').textContent=fmt(wajib);$('r-gy').textContent=fmt(kopi);
+  $('r-tb').textContent=fmt(Math.max(0,tab));
+  $('r-bar').style.width=Math.max(0,Math.min(100,pct))+'%';
+  $('r-chip').textContent=!inc?'Isi data di samping.':pct>=20?'Sehat — tabungan di atas 20%.':pct>=10?'Cukup — kurangi sedikit gaya hidup.':pct>=0?'Kritis — hampir tidak ada sisa.':'Defisit — pengeluaran melebihi pemasukan.';
+  return {inc,kos,makanHarian:md,kopi,wajib,tabungan:tab,persen:Math.round(pct)};
+}
+['income','kos','makan','kopi'].forEach(i=>$(i).addEventListener('input',hitung));
+
+/* Tracker */
+let ex=[{n:'Makan siang warteg',a:15000,b:false},{n:'Kopi kekinian',a:35000,b:true},{n:'Fotokopi materi kuliah',a:8000,b:false}];
+function renderEx(){
+  const t=ex.reduce((s,e)=>s+e.a,0);
+  $('exList').innerHTML='';
+  ex.forEach((e,i)=>{
+    const d=document.createElement('div');d.className='ex';
+    const nm=document.createElement('em');nm.textContent=e.n;
+    const am=document.createElement('span');am.textContent=fmt(e.a);if(e.b)am.className='b';
+    const x=document.createElement('button');x.textContent='×';x.setAttribute('aria-label','Hapus');x.onclick=()=>{ex.splice(i,1);renderEx()};
+    d.append(nm,am,x);$('exList').append(d);
+  });
+  $('ttl').textContent=fmt(t);$('pf').style.width=Math.min(100,t/80000*100)+'%';
+}
+function addEx(){
+  const n=$('enm').value.trim(),a=+$('eam').value;if(!n||!a)return;
+  ex.unshift({n,a,b:/kopi|cafe|boba|nongkrong|jajan|snack|shopee|tokopedia|lazada|netflix|spotify/i.test(n)});
+  $('enm').value='';$('eam').value='';renderEx();
+}
+$('enm').addEventListener('keydown',e=>{if(e.key==='Enter')addEx()});
+renderEx();hitung();
+
+/* AI */
+const SYS='Kamu adalah asisten keuangan untuk mahasiswa Indonesia di situs DuitAman. Jawab dalam bahasa Indonesia santai, ringkas, praktis, tanpa markdown berat. Rujuk metode 50/30/20, pay yourself first, dan aturan tunggu 24 jam bila relevan. Kamu bukan penasihat keuangan berlisensi; jangan merekomendasikan produk investasi spesifik.';
+function ctx(){
+  const c=hitung();
+  return 'Data pengguna saat ini (Rp): '+JSON.stringify(c)+'. Pengeluaran hari ini: '+JSON.stringify(ex.map(e=>({nama:e.n,jumlah:e.a,boros:e.b})))+'.';
+}
+let sample=null;
+(async()=>{try{sample=await claude.use('sample')}catch(e){sample=null}
+  if(!sample){$('analyze').disabled=true;$('aiOut').textContent='Fitur AI hanya aktif saat halaman dibuka lewat claude.ai.';}
+})();
+
+$('analyze').onclick=async()=>{
+  if(!sample)return;
+  const out=$('aiOut');out.textContent='Menganalisis...';$('analyze').disabled=true;
+  try{
+    await sample(SYS+'\n\n'+ctx()+'\n\nTugas: analisis kondisi keuangan ini. Beri (1) penilaian singkat, (2) tiga kebocoran atau kekuatan utama, (3) tiga langkah konkret minggu ini dengan angka. Kalau data kalkulator masih kosong, minta pengguna mengisinya dulu.',
+      {cache:false,onText:({text})=>{out.textContent=text}});
+  }catch(e){out.textContent=e&&e.code==='not_granted'?'Izin AI belum diberikan.':'Gagal memuat analisis. Coba lagi sebentar lagi.'}
+  $('analyze').disabled=false;
+};
+
+/* Chat */
+const hist=[];
+$('fab').onclick=()=>{$('chat').classList.toggle('on');if($('chat').classList.contains('on'))$('cin').focus()};
+function bubble(t,c){const d=document.createElement('div');d.className='m '+c;d.textContent=t;$('msgs').append(d);$('msgs').scrollTop=1e9;return d}
+async function send(){
+  const t=$('cin').value.trim();if(!t)return;$('cin').value='';bubble(t,'u');
+  if(!sample){bubble('Chat AI hanya aktif saat halaman dibuka lewat claude.ai.','a');return}
+  hist.push({role:'user',content:t});
+  const turns=hist.slice(-11).map(m=>({...m}));
+  turns[0]={role:'user',content:SYS+'\n\n'+ctx()+'\n\nPercakapan dimulai. Pesan pengguna:\n'+turns[0].content};
+  const b=bubble('...','a');
+  try{
+    const r=await sample(turns,{cache:false,onText:({text})=>{b.textContent=text;$('msgs').scrollTop=1e9}});
+    hist.push({role:'assistant',content:r.text});
+  }catch(e){hist.pop();b.textContent=e&&e.code==='rate_limited'?'Terlalu cepat, tunggu sebentar ya.':'Maaf, ada gangguan. Coba lagi.'}
+}
+$('csend').onclick=send;$('cin').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+</script>
+</body>
+</html>
